@@ -9,9 +9,6 @@ namespace AdaptiveCards::ObjectModel::Uwp
 {
     class DECLSPEC_UUID("49496982-18E7-48A8-9D16-99E389BE9133") AdaptiveCardElementBase : public IUnknown
     {
-    public:
-        InternalId GetInternalId() { return m_internalId; }
-
     protected:
         HRESULT InitializeBaseElement(const std::shared_ptr<AdaptiveCards::BaseCardElement>& sharedModel);
 
@@ -23,6 +20,8 @@ namespace AdaptiveCards::ObjectModel::Uwp
 
         IFACEMETHODIMP get_Id(_Outptr_ HSTRING* id);
         IFACEMETHODIMP put_Id(_In_ HSTRING id);
+
+        IFACEMETHODIMP get_InternalId(_Out_ UINT32* id);
 
         IFACEMETHODIMP get_IsVisible(_Out_ boolean* separator);
         IFACEMETHODIMP put_IsVisible(boolean separator);
@@ -53,11 +52,11 @@ namespace AdaptiveCards::ObjectModel::Uwp
         boolean m_separator;
         boolean m_isVisible;
         Microsoft::WRL::Wrappers::HString m_id;
+        UINT32 m_internalId;
         ABI::AdaptiveCards::ObjectModel::Uwp::Spacing m_spacing;
         Microsoft::WRL::ComPtr<ABI::Windows::Data::Json::IJsonObject> m_additionalProperties;
         Microsoft::WRL::Wrappers::HString m_typeString;
         ABI::AdaptiveCards::ObjectModel::Uwp::HeightType m_height;
-        InternalId m_internalId;
         ABI::AdaptiveCards::ObjectModel::Uwp::FallbackType m_fallbackType;
         Microsoft::WRL::ComPtr<ABI::AdaptiveCards::ObjectModel::Uwp::IAdaptiveCardElement> m_fallbackContent;
         Microsoft::WRL::ComPtr<ABI::Windows::Foundation::Collections::IVector<ABI::AdaptiveCards::ObjectModel::Uwp::AdaptiveRequirement*>> m_requirements;

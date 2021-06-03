@@ -250,6 +250,7 @@ namespace AdaptiveCards
                 Spacing Spacing;
                 Boolean Separator;
                 String Id;
+                UInt32 InternalId { get; };
                 Boolean IsVisible;
                 FallbackType FallbackType;
                 IAdaptiveCardElement FallbackContent;

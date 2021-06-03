@@ -21,111 +21,119 @@ namespace AdaptiveCards::ObjectModel::Uwp
         HRESULT RuntimeClassInitialize(const std::shared_ptr<AdaptiveCards::Image>& sharedImage);
 
         // IAdaptiveImage
-        IFACEMETHODIMP get_Url(_Outptr_ HSTRING* uri);
-        IFACEMETHODIMP put_Url(_In_ HSTRING uri);
+        IFACEMETHODIMP get_Url(_Outptr_ HSTRING* uri) override;
+        IFACEMETHODIMP put_Url(_In_ HSTRING uri) override;
 
-        IFACEMETHODIMP get_BackgroundColor(_Outptr_ HSTRING* backgroundColor);
-        IFACEMETHODIMP put_BackgroundColor(_In_ HSTRING backgroundColor);
+        IFACEMETHODIMP get_BackgroundColor(_Outptr_ HSTRING* backgroundColor) override;
+        IFACEMETHODIMP put_BackgroundColor(_In_ HSTRING backgroundColor) override;
 
-        IFACEMETHODIMP get_Style(_Out_ ABI::AdaptiveCards::ObjectModel::Uwp::ImageStyle* imageStyle);
-        IFACEMETHODIMP put_Style(ABI::AdaptiveCards::ObjectModel::Uwp::ImageStyle imageStyle);
+        IFACEMETHODIMP get_Style(_Out_ ABI::AdaptiveCards::ObjectModel::Uwp::ImageStyle* imageStyle) override;
+        IFACEMETHODIMP put_Style(ABI::AdaptiveCards::ObjectModel::Uwp::ImageStyle imageStyle) override;
 
-        IFACEMETHODIMP get_Size(_Out_ ABI::AdaptiveCards::ObjectModel::Uwp::ImageSize* imageSize);
-        IFACEMETHODIMP put_Size(ABI::AdaptiveCards::ObjectModel::Uwp::ImageSize imageSize);
+        IFACEMETHODIMP get_Size(_Out_ ABI::AdaptiveCards::ObjectModel::Uwp::ImageSize* imageSize) override;
+        IFACEMETHODIMP put_Size(ABI::AdaptiveCards::ObjectModel::Uwp::ImageSize imageSize) override;
 
-        IFACEMETHODIMP get_PixelWidth(_Out_ UINT32* Width);
-        IFACEMETHODIMP put_PixelWidth(UINT32 Width);
+        IFACEMETHODIMP get_PixelWidth(_Out_ UINT32* Width) override;
+        IFACEMETHODIMP put_PixelWidth(UINT32 Width) override;
 
-        IFACEMETHODIMP get_PixelHeight(_Out_ UINT32* Height);
-        IFACEMETHODIMP put_PixelHeight(UINT32 Height);
+        IFACEMETHODIMP get_PixelHeight(_Out_ UINT32* Height) override;
+        IFACEMETHODIMP put_PixelHeight(UINT32 Height) override;
 
-        IFACEMETHODIMP get_AltText(_Outptr_ HSTRING* text);
-        IFACEMETHODIMP put_AltText(_In_ HSTRING text);
+        IFACEMETHODIMP get_AltText(_Outptr_ HSTRING* text) override;
+        IFACEMETHODIMP put_AltText(_In_ HSTRING text) override;
 
-        IFACEMETHODIMP get_HorizontalAlignment(_Out_ ABI::AdaptiveCards::ObjectModel::Uwp::HAlignment* HorizontalAlignment);
-        IFACEMETHODIMP put_HorizontalAlignment(ABI::AdaptiveCards::ObjectModel::Uwp::HAlignment HorizontalAlignment);
+        IFACEMETHODIMP get_HorizontalAlignment(_Out_ ABI::AdaptiveCards::ObjectModel::Uwp::HAlignment* HorizontalAlignment) override;
+        IFACEMETHODIMP put_HorizontalAlignment(ABI::AdaptiveCards::ObjectModel::Uwp::HAlignment HorizontalAlignment) override;
 
-        IFACEMETHODIMP get_SelectAction(_COM_Outptr_ ABI::AdaptiveCards::ObjectModel::Uwp::IAdaptiveActionElement** action);
-        IFACEMETHODIMP put_SelectAction(_In_ ABI::AdaptiveCards::ObjectModel::Uwp::IAdaptiveActionElement* action);
+        IFACEMETHODIMP get_SelectAction(_COM_Outptr_ ABI::AdaptiveCards::ObjectModel::Uwp::IAdaptiveActionElement** action) override;
+        IFACEMETHODIMP put_SelectAction(_In_ ABI::AdaptiveCards::ObjectModel::Uwp::IAdaptiveActionElement* action) override;
 
         // IAdaptiveCardElement
-        IFACEMETHODIMP get_ElementType(_Out_ ABI::AdaptiveCards::ObjectModel::Uwp::ElementType* elementType);
+        IFACEMETHODIMP get_ElementType(_Out_ ABI::AdaptiveCards::ObjectModel::Uwp::ElementType* elementType) override;
 
-        IFACEMETHODIMP get_Spacing(_Out_ ABI::AdaptiveCards::ObjectModel::Uwp::Spacing* spacing)
+        IFACEMETHODIMP get_Spacing(_Out_ ABI::AdaptiveCards::ObjectModel::Uwp::Spacing* spacing) override
         {
             return AdaptiveCardElementBase::get_Spacing(spacing);
         }
-        IFACEMETHODIMP put_Spacing(ABI::AdaptiveCards::ObjectModel::Uwp::Spacing spacing)
+        IFACEMETHODIMP put_Spacing(ABI::AdaptiveCards::ObjectModel::Uwp::Spacing spacing) override
         {
             return AdaptiveCardElementBase::put_Spacing(spacing);
         }
 
-        IFACEMETHODIMP get_Separator(_Out_ boolean* separator)
+        IFACEMETHODIMP get_Separator(_Out_ boolean* separator) override
         {
             return AdaptiveCardElementBase::get_Separator(separator);
         }
-        IFACEMETHODIMP put_Separator(boolean separator) { return AdaptiveCardElementBase::put_Separator(separator); }
+        IFACEMETHODIMP put_Separator(boolean separator) override
+        {
+            return AdaptiveCardElementBase::put_Separator(separator);
+        }
 
-        IFACEMETHODIMP get_IsVisible(_Out_ boolean* isVisible)
+        IFACEMETHODIMP get_IsVisible(_Out_ boolean* isVisible) override
         {
             return AdaptiveCardElementBase::get_IsVisible(isVisible);
         }
-        IFACEMETHODIMP put_IsVisible(boolean isVisible) { return AdaptiveCardElementBase::put_IsVisible(isVisible); }
+        IFACEMETHODIMP put_IsVisible(boolean isVisible) override
+        {
+            return AdaptiveCardElementBase::put_IsVisible(isVisible);
+        }
 
-        IFACEMETHODIMP get_Id(_Outptr_ HSTRING* id) { return AdaptiveCardElementBase::get_Id(id); }
-        IFACEMETHODIMP put_Id(_In_ HSTRING id) { return AdaptiveCardElementBase::put_Id(id); }
+        IFACEMETHODIMP get_Id(_Outptr_ HSTRING* id) override { return AdaptiveCardElementBase::get_Id(id); }
+        IFACEMETHODIMP put_Id(_In_ HSTRING id) override { return AdaptiveCardElementBase::put_Id(id); }
 
-        IFACEMETHODIMP get_FallbackType(_Out_ ABI::AdaptiveCards::ObjectModel::Uwp::FallbackType* fallback)
+        IFACEMETHODIMP get_InternalId(_Out_ UINT32* id) override { return AdaptiveCardElementBase::get_InternalId(id); }
+
+        IFACEMETHODIMP get_FallbackType(_Out_ ABI::AdaptiveCards::ObjectModel::Uwp::FallbackType* fallback) override
         {
             return AdaptiveCardElementBase::get_FallbackType(fallback);
         }
-        IFACEMETHODIMP get_FallbackContent(_COM_Outptr_ ABI::AdaptiveCards::ObjectModel::Uwp::IAdaptiveCardElement** content)
+        IFACEMETHODIMP get_FallbackContent(_COM_Outptr_ ABI::AdaptiveCards::ObjectModel::Uwp::IAdaptiveCardElement** content) override
         {
             return AdaptiveCardElementBase::get_FallbackContent(content);
         }
 
-        IFACEMETHODIMP put_FallbackType(ABI::AdaptiveCards::ObjectModel::Uwp::FallbackType fallback)
+        IFACEMETHODIMP put_FallbackType(ABI::AdaptiveCards::ObjectModel::Uwp::FallbackType fallback) override
         {
             return AdaptiveCardElementBase::put_FallbackType(fallback);
         }
 
-        IFACEMETHODIMP put_FallbackContent(_In_ ABI::AdaptiveCards::ObjectModel::Uwp::IAdaptiveCardElement* content)
+        IFACEMETHODIMP put_FallbackContent(_In_ ABI::AdaptiveCards::ObjectModel::Uwp::IAdaptiveCardElement* content) override
         {
             return AdaptiveCardElementBase::put_FallbackContent(content);
         }
 
-        IFACEMETHODIMP get_ElementTypeString(_Outptr_ HSTRING* value)
+        IFACEMETHODIMP get_ElementTypeString(_Outptr_ HSTRING* value) override
         {
             return AdaptiveCardElementBase::get_ElementTypeString(value);
         }
 
-        IFACEMETHODIMP get_AdditionalProperties(_COM_Outptr_ ABI::Windows::Data::Json::IJsonObject** result)
+        IFACEMETHODIMP get_AdditionalProperties(_COM_Outptr_ ABI::Windows::Data::Json::IJsonObject** result) override
         {
             return AdaptiveCardElementBase::get_AdditionalProperties(result);
         }
-        IFACEMETHODIMP put_AdditionalProperties(_In_ ABI::Windows::Data::Json::IJsonObject* value)
+        IFACEMETHODIMP put_AdditionalProperties(_In_ ABI::Windows::Data::Json::IJsonObject* value) override
         {
             return AdaptiveCardElementBase::put_AdditionalProperties(value);
         }
 
         IFACEMETHODIMP get_Requirements(
-            _COM_Outptr_ ABI::Windows::Foundation::Collections::IVector<ABI::AdaptiveCards::ObjectModel::Uwp::AdaptiveRequirement*>** requirements)
+            _COM_Outptr_ ABI::Windows::Foundation::Collections::IVector<ABI::AdaptiveCards::ObjectModel::Uwp::AdaptiveRequirement*>** requirements) override
         {
             return AdaptiveCardElementBase::get_Requirements(requirements);
         }
 
-        IFACEMETHODIMP ToJson(_COM_Outptr_ ABI::Windows::Data::Json::IJsonObject** result)
+        IFACEMETHODIMP ToJson(_COM_Outptr_ ABI::Windows::Data::Json::IJsonObject** result) override
         {
             return AdaptiveCardElementBase::ToJson(result);
         }
 
         virtual HRESULT GetSharedModel(std::shared_ptr<AdaptiveCards::BaseCardElement>& sharedModel) override;
 
-        IFACEMETHODIMP get_Height(_Out_ ABI::AdaptiveCards::ObjectModel::Uwp::HeightType* height)
+        IFACEMETHODIMP get_Height(_Out_ ABI::AdaptiveCards::ObjectModel::Uwp::HeightType* height) override
         {
             return AdaptiveCardElementBase::get_Height(height);
         }
-        IFACEMETHODIMP put_Height(ABI::AdaptiveCards::ObjectModel::Uwp::HeightType height)
+        IFACEMETHODIMP put_Height(ABI::AdaptiveCards::ObjectModel::Uwp::HeightType height) override
         {
             return AdaptiveCardElementBase::put_Height(height);
         }

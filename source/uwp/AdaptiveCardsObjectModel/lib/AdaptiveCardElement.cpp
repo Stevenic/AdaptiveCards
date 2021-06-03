@@ -22,7 +22,7 @@ namespace AdaptiveCards::ObjectModel::Uwp
         RETURN_IF_FAILED(JsonCppToJsonObject(sharedModel->GetAdditionalProperties(), &m_additionalProperties));
         RETURN_IF_FAILED(UTF8ToHString(sharedModel->GetElementTypeString(), m_typeString.GetAddressOf()));
         m_height = static_cast<ABI::AdaptiveCards::ObjectModel::Uwp::HeightType>(sharedModel->GetHeight());
-        m_internalId = sharedModel->GetInternalId();
+        m_internalId = sharedModel->GetInternalId().Hash();
         m_fallbackType = MapSharedFallbackTypeToUwp(sharedModel->GetFallbackType());
         if (m_fallbackType == ABI::AdaptiveCards::ObjectModel::Uwp::FallbackType::Content)
         {
@@ -115,6 +115,12 @@ namespace AdaptiveCards::ObjectModel::Uwp
     IFACEMETHODIMP AdaptiveCardElementBase::get_Id(_Outptr_ HSTRING* id) { return m_id.CopyTo(id); }
 
     IFACEMETHODIMP AdaptiveCardElementBase::put_Id(_In_ HSTRING id) { return m_id.Set(id); }
+
+    IFACEMETHODIMP AdaptiveCardElementBase::get_InternalId(_Out_ UINT32* id)
+    {
+        *id = m_internalId;
+        return S_OK;
+    }
 
     IFACEMETHODIMP AdaptiveCardElementBase::get_ElementTypeString(_Outptr_ HSTRING* type)
     {
